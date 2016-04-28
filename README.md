@@ -1,5 +1,5 @@
 Nutrient Finder.
 
-Using Nutritionix API,
+Will eventually incorp this into eviter
 
-ReactJS, BackboneJS
+Using Nutritionix API, ReactJS, BackboneJS

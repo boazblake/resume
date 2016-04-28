@@ -92,7 +92,7 @@ var IronEventsRouter = Backbone.Router.extend({
 				// 'query':'tomato'
 			}
 		}).then( function(){
-			DOM.render(<ExampleView example={component.nc}/>, document.querySelector('.container'))
+			DOM.render(<AppView qryColl={component.nc}/>, document.querySelector('.container'))
 		})
 	},
 
@@ -117,7 +117,7 @@ var Footer = React.createClass({
 
 
 // VIEWS
-var ExampleView = React.createClass({
+var AppView = React.createClass({
 
 	_handleSearch:function(evt){
 		// console.log(evt.target.value)
@@ -131,27 +131,18 @@ var ExampleView = React.createClass({
 	},
 
 
-						// <h3 detail_id={ind}>brand_id: {item.get('fields').brand_id}</h3>
-
-						// <h3 detail_id={ind}>item_id: {item.get('fields').item_id}</h3>
-
-
-
-
+						// <h3 >brand_id: {item.get('fields').brand_id}</h3>
+						// <h3 >item_id: {item.get('fields').item_id}</h3>
 
 
 	_generateJSXresults:function(modelsArray){
 		var JSXArray = ''
-		// console.log('this.props.example.modelsArray>>>>>', modelsArray)
-		JSXArray = modelsArray.map(function(item, ind){
+		// console.log('this.props.qryColl.modelsArray>>>>>', modelsArray)
+		JSXArray = modelsArray.map(function(item){
+			var component = this
 			// console.log('brand_id>>>',item.get('fields').item_name)
 			return (
-					<div key={ind} className='brandDeets'>
-						<h3 detail_id={ind}>brand_name: {item.get('fields').brand_name}</h3>
-						<h1 detail_id={ind}>item_name: {item.get('fields').item_name}</h1>
-						<h3 detail_id={ind}>nf_serving_size_qty: {item.get('fields').nf_serving_size_qty}</h3>
-						<h3 detail_id={ind}>nf_serving_size_unit: {item.get('fields').nf_serving_size_unit}</h3>
-				</div>
+				<SearchResults item={item}/>
 			)
 		}) 
 		return JSXArray
@@ -167,13 +158,28 @@ var ExampleView = React.createClass({
 					<button className={"btn btn-primary"}> search food item</button>
 				</div>
 				<div className='results'>
-					{this._generateJSXresults(this.props.example.models)}
+					{this._generateJSXresults(this.props.qryColl.models)}
 				</div>
 				<Footer/>
 			</div>
 		)
 	}
 })
+
+
+var SearchResults = React.createClass({
+	render:function(){
+		var item = this.props.item
+		return (
+			<div className='brandDeets'>
+				<h3 > {item.get('fields').item_name}</h3>
+				<h5 >brand: {item.get('fields').brand_name}</h5>
+				<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
+			</div>
+		)
+	}
+})
+
 
 
 var IER = new IronEventsRouter()

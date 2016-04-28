@@ -164,7 +164,9 @@ var SearchResultsView = React.createClass({
 			var component = this
 			// console.log('brand_id>>>',item.get('fields').item_name)
 			return (
-				<SearchResultsItems item={item} key={i}/>
+				<div className='item'>
+					<SearchResultsItems item={item} key={i}/>
+				</div>
 			)
 		}) 
 		return JSXArray
@@ -176,7 +178,7 @@ var SearchResultsView = React.createClass({
 		var component = this
 		var item = component.props.item
 		return (
-			<div>
+			<div className='SearchResultsWrapper'>
 			{this._generateJSXresults(component.props.qryColl)}
 			</div>
 		)

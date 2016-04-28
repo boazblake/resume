@@ -128,9 +128,17 @@ body {
  */
 
 
-.brandDeets{
-    display: inline-block;
-    border: 1px solid grey;
-    width:25%;
-    font-size: 12px;
+.SearchResultsWrapper {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    flex-flow:space-around;
+    align-items:baseline;
+    align-content:space-around;
+
+    .item{
+        display: inline-block;
+        border: 1px solid grey;
+        font-size: 12px;
+    }
 }

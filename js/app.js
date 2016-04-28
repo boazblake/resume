@@ -135,20 +135,6 @@ var AppView = React.createClass({
 						// <h3 >item_id: {item.get('fields').item_id}</h3>
 
 
-	_generateJSXresults:function(modelsArray){
-		var JSXArray = ''
-		// console.log('this.props.qryColl.modelsArray>>>>>', modelsArray)
-		JSXArray = modelsArray.map(function(item){
-			var component = this
-			// console.log('brand_id>>>',item.get('fields').item_name)
-			return (
-				<SearchResults item={item}/>
-			)
-		}) 
-		return JSXArray
-	},
-
-
 	render: function(){
 
 		return (
@@ -157,9 +143,7 @@ var AppView = React.createClass({
 					<input onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
 					<button className={"btn btn-primary"}> search food item</button>
 				</div>
-				<div className='results'>
-					{this._generateJSXresults(this.props.qryColl.models)}
-				</div>
+				<SearchResultsView qryColl={this.props.qryColl.models}/>
 				<Footer/>
 			</div>
 		)
@@ -167,11 +151,41 @@ var AppView = React.createClass({
 })
 
 
-var SearchResults = React.createClass({
+var SearchResultsView = React.createClass({
+
+
+	_generateJSXresults:function(modelsArray){
+		var JSXArray = ''
+		// console.log('this.props.qryColl.modelsArray>>>>>', modelsArray)
+		JSXArray = modelsArray.map(function(item, i){
+			var component = this
+			// console.log('brand_id>>>',item.get('fields').item_name)
+			return (
+				<SearchResultsItems item={item} key={i}/>
+			)
+		}) 
+		return JSXArray
+	},
+
+
+
+	render:function(){
+		var component = this
+		var item = component.props.item
+		return (
+			<div>
+			{this._generateJSXresults(component.props.qryColl)}
+			</div>
+		)
+	}
+})
+
+
+var SearchResultsItems =  React.createClass({
 	render:function(){
 		var item = this.props.item
 		return (
-			<div className='brandDeets'>
+			<div key={this.props.key} className='brandDeets'>
 				<h3 > {item.get('fields').item_name}</h3>
 				<h5 >brand: {item.get('fields').brand_name}</h5>
 				<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
@@ -179,6 +193,9 @@ var SearchResults = React.createClass({
 		)
 	}
 })
+
+
+
 
 
 

@@ -53,11 +53,14 @@ import Backbone from 'backbone'
 
 // API URL
 
+// Field options
+// https://docs.google.com/spreadsheets/d/1jZSa039OfpQOiRzaS980nPKCvVe2TRKRPZk7ZbaH7kE/edit#gid=0
+
 var NutrientModel = Backbone.Model.extend({})
 
 var NutrientColl = Backbone.Collection.extend({
 	_setURL: function(qry){
-		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&`
+		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_total_carbohydrate%2Cnf_sugars%2Cnf_total_fat%2Cnf_calories_from_fat%2Cnf_water_grams%2citem_description%2Cnf_ingredient_statement%2Citem_id`
 	},
 
 	appKey:'c530fdb9500741614cb04ec9dc9883d6',
@@ -189,13 +192,18 @@ var SearchResultsItems =  React.createClass({
 				<h3 > {item.get('fields').item_name}</h3>
 				<h5 >brand: {item.get('fields').brand_name}</h5>
 				<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
+				<p >calories: {item.get('fields').nf_calories}</p>
+				<p >total carbohydrate: {item.get('fields').nf_total_carbohydrate}</p>
+				<p >sugars: {item.get('fields').nf_sugars}</p>
+				<p >total fat: {item.get('fields').nf_total_fat}</p>
+				<p >calories from fat: {item.get('fields').nf_calories_from_fat}</p>
+				<p >water grams: {item.get('fields').nf_water_grams}</p>
+				<p >item description: {item.get('fields').item_description}</p>
+				<p >ingredient statement: {item.get('fields').nf_ingredient_statement}</p>
 			</div>
 		)
 	}
 })
-
-
-
 
 
 

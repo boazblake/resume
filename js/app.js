@@ -51,29 +51,20 @@ import Backbone from 'backbone'
 // ///////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////
 
-// example URL for nutritionix
-// "https://api.nutritionix.com/v1_1/search/taco?results=0%3A20&cal_min=0&cal_max=3&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=98cd0ce4&appKey=30068e1d9c1d32ebf4ab17a523899cf2"
-
-
-
-
-
-// 
-// https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=[YOURID]&appKey=[YOURKEY]
-// https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=98cd0ce4&appKey=30068e1d9c1d32ebf4ab17a523899cf2
-
 // API URL
 
 var NutrientModel = Backbone.Model.extend({})
 
 var NutrientColl = Backbone.Collection.extend({
-	url:'https://api.nutritionix.com/v1_1/search/?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&',
-	// results=0%3A20&cal_min=0&cal_max=30000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&`,
+	_setURL: function(qry){
+		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&`
+	},
+
 	appKey:'c530fdb9500741614cb04ec9dc9883d6',
 	appId:'98cd0ce4',
 
-	// model:NutrientModel,
-
+	model:NutrientModel,
+	
 	parse:function(rawData){
 		console.log('rawData.hits: >>>>>>', rawData.hits)
 		return rawData.hits
@@ -88,13 +79,17 @@ var IronEventsRouter = Backbone.Router.extend({
 
 	handleTestPage: function(){
 		var component = this
+		var hashRoute = location.hash
+		var qry = hashRoute.substring(1)
+		console.log('qry', qry)
 		component.nc = new NutrientColl()
+		component.nc._setURL(qry)
 		console.log('component.nc', component.nc)
 		component.nc.fetch({
 			data:{
 				'appId':component.nc.appId,
 				'appKey':component.nc.appKey,
-				'query':'tomato'
+				// 'query':'tomato'
 			}
 		}).then( function(){
 			DOM.render(<ExampleView example={component.nc}/>, document.querySelector('.container'))
@@ -107,8 +102,7 @@ var IronEventsRouter = Backbone.Router.extend({
 	}
 })
 
-// VIEWS
-
+//MODULES
 var Footer = React.createClass({
 	render:function(){
 		return(
@@ -121,11 +115,30 @@ var Footer = React.createClass({
 	}
 })
 
+
+// VIEWS
 var ExampleView = React.createClass({
 
 	_handleSearch:function(evt){
-		console.log(evt.value)
+		// console.log(evt.target.value)
+		var searchTerm = evt.target.value
+		var spaceInWord = ' '
+		var re = new RegExp(spaceInWord, 'g')
+		var hashTerm = searchTerm.replace(re, '%20')
+		if (evt.keyCode === 13){			
+			location.hash=hashTerm
+		}
 	},
+
+
+						// <h3 detail_id={ind}>brand_id: {item.get('fields').brand_id}</h3>
+
+						// <h3 detail_id={ind}>item_id: {item.get('fields').item_id}</h3>
+
+
+
+
+
 
 	_generateJSXresults:function(modelsArray){
 		var JSXArray = ''
@@ -133,14 +146,11 @@ var ExampleView = React.createClass({
 		JSXArray = modelsArray.map(function(item, ind){
 			// console.log('brand_id>>>',item.get('fields').item_name)
 			return (
-					<div key={ind}className='brandDeets'>
-						<p detail_id={ind}>brand_id: {item.get('fields').brand_id}</p>
-						<p detail_id={ind}>brand_name: {item.get('fields').brand_name}</p>
-						<p detail_id={ind}>item_id: {item.get('fields').item_id}</p>
-						<p detail_id={ind}>item_id: {item.get('fields').brand_id}</p>
-						<p detail_id={ind}>item_name: {item.get('fields').item_name}</p>
-						<p detail_id={ind}>nf_serving_size_qty: {item.get('fields').nf_serving_size_qty}</p>
-						<p detail_id={ind}>nf_serving_size_unit: {item.get('fields').nf_serving_size_unit}</p>
+					<div key={ind} className='brandDeets'>
+						<h3 detail_id={ind}>brand_name: {item.get('fields').brand_name}</h3>
+						<h1 detail_id={ind}>item_name: {item.get('fields').item_name}</h1>
+						<h3 detail_id={ind}>nf_serving_size_qty: {item.get('fields').nf_serving_size_qty}</h3>
+						<h3 detail_id={ind}>nf_serving_size_unit: {item.get('fields').nf_serving_size_unit}</h3>
 				</div>
 			)
 		}) 
@@ -149,11 +159,12 @@ var ExampleView = React.createClass({
 
 
 	render: function(){
+
 		return (
 			<div id='render'>
 				<div className='searchBox'>
 					<input onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
-					<button >search food item</button>
+					<button className={"btn btn-primary"}> search food item</button>
 				</div>
 				<div className='results'>
 					{this._generateJSXresults(this.props.example.models)}

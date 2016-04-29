@@ -89,18 +89,25 @@ var SearchResultsItems =  React.createClass({
 	render:function(){
 		var item = this.props.item
 		return (
-			<div key={this.props.key} className='brandDeets' onClick={this._handleId.bind(this, item)}>
-				<h3 > {item.get('fields').item_name}</h3>
-				<h5 >brand: {item.get('fields').brand_name}</h5>
-				<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
-				<p >calories: {item.get('fields').nf_calories}</p>
-				<p >total carbohydrate: {item.get('fields').nf_total_carbohydrate}</p>
-				<p >sugars: {item.get('fields').nf_sugars}</p>
-				<p >total fat: {item.get('fields').nf_total_fat}</p>
-				<p >calories from fat: {item.get('fields').nf_calories_from_fat}</p>
-				<p >water grams: {item.get('fields').nf_water_grams}</p>
-				<p >item description: {item.get('fields').item_description}</p>
-				<p >ingredient statement: {item.get('fields').nf_ingredient_statement}</p>
+			<div key={this.props.key} className='cardWrapper' onClick={this._handleId.bind(this, item)}>
+				
+				<div className='brandDeets frontOfCard' >
+					<h3 > {item.get('fields').item_name}</h3>
+					<h5 >brand: {item.get('fields').brand_name}</h5>
+					<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
+					<p >calories: {item.get('fields').nf_calories}</p>
+					<p >total carbohydrate: {item.get('fields').nf_total_carbohydrate}</p>
+					<p >sugars: {item.get('fields').nf_sugars}</p>
+					<p >total fat: {item.get('fields').nf_total_fat}</p>
+					<p >calories from fat: {item.get('fields').nf_calories_from_fat}</p>
+					<p >water grams: {item.get('fields').nf_water_grams}</p>
+				</div>
+
+				<div className='brandDeets backOfCard'>
+					<p >item description: {item.get('fields').item_description}</p>
+					<p >ingredient statement: {item.get('fields').nf_ingredient_statement}</p>
+				</div>
+
 			</div>
 		)
 	}

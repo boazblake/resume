@@ -141,7 +141,6 @@ body {
         display: flex;
         border: 1px solid grey;
         font-size: 12px;
-        .searchResultsWrapper {
 
             .cardWrapper{
                 position: relative;
@@ -155,20 +154,20 @@ body {
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background-color: red;
-                    backface-visibilty:hidden;
+                    backface-visibility: hidden;
                     transition: .7s all;
                     transform-style: preserve-3d;
                     
                     &.frontOfCard {
                         transform: rotateY(0deg);
-                        background:#e74c3c;
+                        background:#e67e22;
                         z-index:1;
                     }
 
                     &.backOfCard {
                         transform: rotateY(180deg);
-                        background:#3498db;;
+                        background:#2ecc71;
+                        color: #34495e;
                         z-index: 2;
                     }
                 }
@@ -183,6 +182,5 @@ body {
                 }
 
             }
-        }
     }
 }

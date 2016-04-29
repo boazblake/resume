@@ -139,12 +139,11 @@ body {
 
     .item{
         display: flex;
-        border: 1px solid grey;
-        font-size: 12px;
+        margin:2%;
 
             .cardWrapper{
                 position: relative;
-                height: 250px;
+                height: 300px;
                 width:250px;
                 perspective:1000px;
 
@@ -161,6 +160,7 @@ body {
                     &.frontOfCard {
                         transform: rotateY(0deg);
                         background:#e67e22;
+                        color: #34495e;
                         z-index:1;
                     }
 

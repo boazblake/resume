@@ -47,6 +47,7 @@ import Backbone from 'backbone'
 // console.log("_>>>>>", _)
 // console.log("Firebase>>>>>", Firebase)
 // console.log("backbone>>>>>", Backbone)
+import {AppView} from './views'
 // ///////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////
@@ -60,7 +61,7 @@ var NutrientModel = Backbone.Model.extend({})
 
 var NutrientColl = Backbone.Collection.extend({
 	_setURL: function(qry){
-		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_total_carbohydrate%2Cnf_sugars%2Cnf_total_fat%2Cnf_calories_from_fat%2Cnf_water_grams%2citem_description%2Cnf_ingredient_statement%2Citem_id`
+		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_total_carbohydrate%2Cnf_sugars%2Cnf_total_fat%2Cnf_calories_from_fat%2Cnf_water_grams%2citem_description%2Cnf_ingredient_statement%2Citem_id%2Cusda_fields`
 	},
 
 	appKey:'c530fdb9500741614cb04ec9dc9883d6',
@@ -104,109 +105,5 @@ var IronEventsRouter = Backbone.Router.extend({
 		Backbone.history.start()
 	}
 })
-
-//MODULES
-var Footer = React.createClass({
-	render:function(){
-		return(
-			<div className='logo'>
-				<a href='http://www.nutritionix.com/api'>
-					<img src='https://d3jpl91pxevbkh.cloudfront.net/nutritionix/image/upload/v1363458498/attribution_jqfdgy.png'/>
-				</a>
-			</div>
-			)
-	}
-})
-
-
-// VIEWS
-var AppView = React.createClass({
-
-	_handleSearch:function(evt){
-		// console.log(evt.target.value)
-		var searchTerm = evt.target.value
-		var spaceInWord = ' '
-		var re = new RegExp(spaceInWord, 'g')
-		var hashTerm = searchTerm.replace(re, '%20')
-		if (evt.keyCode === 13){			
-			location.hash=hashTerm
-		}
-	},
-
-
-						// <h3 >brand_id: {item.get('fields').brand_id}</h3>
-						// <h3 >item_id: {item.get('fields').item_id}</h3>
-
-
-	render: function(){
-
-		return (
-			<div id='render'>
-				<div className='searchBox'>
-					<input onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
-					<button className={"btn btn-primary"}> search food item</button>
-				</div>
-				<SearchResultsView qryColl={this.props.qryColl.models}/>
-				<Footer/>
-			</div>
-		)
-	}
-})
-
-
-var SearchResultsView = React.createClass({
-
-
-	_generateJSXresults:function(modelsArray){
-		var JSXArray = ''
-		// console.log('this.props.qryColl.modelsArray>>>>>', modelsArray)
-		JSXArray = modelsArray.map(function(item, i){
-			var component = this
-			// console.log('brand_id>>>',item.get('fields').item_name)
-			return (
-				<div className='item'>
-					<SearchResultsItems item={item} key={i}/>
-				</div>
-			)
-		}) 
-		return JSXArray
-	},
-
-
-
-	render:function(){
-		var component = this
-		var item = component.props.item
-		return (
-			<div className='SearchResultsWrapper'>
-			{this._generateJSXresults(component.props.qryColl)}
-			</div>
-		)
-	}
-})
-
-
-var SearchResultsItems =  React.createClass({
-	render:function(){
-		var item = this.props.item
-		return (
-			<div key={this.props.key} className='brandDeets'>
-				<h3 > {item.get('fields').item_name}</h3>
-				<h5 >brand: {item.get('fields').brand_name}</h5>
-				<p >size: {item.get('fields').nf_serving_size_qty} {item.get('fields').nf_serving_size_unit}</p>
-				<p >calories: {item.get('fields').nf_calories}</p>
-				<p >total carbohydrate: {item.get('fields').nf_total_carbohydrate}</p>
-				<p >sugars: {item.get('fields').nf_sugars}</p>
-				<p >total fat: {item.get('fields').nf_total_fat}</p>
-				<p >calories from fat: {item.get('fields').nf_calories_from_fat}</p>
-				<p >water grams: {item.get('fields').nf_water_grams}</p>
-				<p >item description: {item.get('fields').item_description}</p>
-				<p >ingredient statement: {item.get('fields').nf_ingredient_statement}</p>
-			</div>
-		)
-	}
-})
-
-
 
 var IER = new IronEventsRouter()

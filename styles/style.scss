@@ -146,6 +146,8 @@ body {
                 height: 300px;
                 width:250px;
                 perspective:1000px;
+                backface-visibility: hidden;
+
 
                 .brandDeets {
                     margin:2%;

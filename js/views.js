@@ -31,10 +31,12 @@ var Footer = React.createClass({
 
 var SplashView = React.createClass({
 
-	_handleSearch:function(evt){
-		console.log(evt.target.value)
-		var searchTerm = evt.target.value
-		console.log('searchTerm', searchTerm)
+	qryStr:'',
+
+	_updateFoodName:function(evt){
+		this.qryStr = evt.target.value
+		var searchTerm = this.qryStr
+		console.log('this.qryStr', this.qryStr)
 		var spaceInWord = ' '
 		var re = new RegExp(spaceInWord, 'g')
 		var hashTerm = searchTerm.replace(re, '%20')
@@ -43,14 +45,20 @@ var SplashView = React.createClass({
 		}
 	},
 
+	_handleSearch:function(evt){
+		$(".searchBox").submit(function(e){
+		    return false;
+		});
+	},
+
 	render: function(){
 
 		return (
 			<div id='render'>
 				<Header/>
 				<form onSubmit={this._handleSearch} className='searchBox'>
-					<input data-qry='search' onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
-					<button className={"btn btn-primary"}> search food item</button>
+					<input data-qry_id='search' onKeyDown={this._updateFoodName} type='search' placeholder='search food item' type='text'></input>
+					<button onClick={this._handleSearch} className={"btn btn-primary"}> search food item</button>
 				</form>
 				<Footer/>
 			</div>
@@ -60,8 +68,29 @@ var SplashView = React.createClass({
 
 var SearchView = React.createClass({
 
+	qryStr:'',
+
+	_updateFoodName:function(evt){
+		this.qryStr = evt.target.value
+		var searchTerm = this.qryStr
+		console.log('this.qryStr', this.qryStr)
+		var spaceInWord = ' '
+		var re = new RegExp(spaceInWord, 'g')
+		var hashTerm = searchTerm.replace(re, '%20')
+		if (evt.keyCode === 13){
+			location.hash='search/'+hashTerm
+		}
+	},
+
 	_handleSearch:function(evt){
+		$(".searchBox").submit(function(e){
+		    return false;
+		});
+
 		evt.preventDefault()
+	},
+
+	_handleSearch:function(evt){
 		console.log(evt.target.value)
 		var searchTerm = evt.target.value
 		console.log('searchTerm', searchTerm)
@@ -80,7 +109,7 @@ var SearchView = React.createClass({
 				<a href='#home'>HOME</a>
 				<form onSubmit={this._handleSearch} className='searchBox'>
 					<input data-qry='search' onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
-					<button className={"btn btn-primary"}> search food item</button>
+					<button onClick={this._handleSearch} className={"btn btn-primary"}> search food item</button>
 				</form>
 				<SearchResultsView qryColl={this.props.qryColl.models}/>
 				<Footer/>

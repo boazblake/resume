@@ -1,5 +1,5 @@
 Nutrient Finder.
 
-need to style and check other APIs
+making as modular as poss. Will integrate at a later stage.
 
 Using Nutritionix API, ReactJS, BackboneJS

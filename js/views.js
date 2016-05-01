@@ -5,6 +5,15 @@ import _ from 'underscore'
 import Backbone from 'backbone'
 
 //MODULES
+
+var Header = React.createClass({
+	render:function(){
+		return (
+			<h1>Search for Food!</h1>
+		)
+	}
+})
+
 var Footer = React.createClass({
 	render:function(){
 		return(
@@ -19,7 +28,8 @@ var Footer = React.createClass({
 
 
 // VIEWS
-var AppView = React.createClass({
+
+var SplashView = React.createClass({
 
 	_handleSearch:function(evt){
 		console.log(evt.target.value)
@@ -28,8 +38,8 @@ var AppView = React.createClass({
 		var spaceInWord = ' '
 		var re = new RegExp(spaceInWord, 'g')
 		var hashTerm = searchTerm.replace(re, '%20')
-		if (evt.keyCode === 13){			
-			location.hash=hashTerm
+		if (evt.keyCode === 13){
+			location.hash='search/'+hashTerm
 		}
 	},
 
@@ -37,6 +47,37 @@ var AppView = React.createClass({
 
 		return (
 			<div id='render'>
+				<Header/>
+				<form onSubmit={this._handleSearch} className='searchBox'>
+					<input data-qry='search' onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
+					<button className={"btn btn-primary"}> search food item</button>
+				</form>
+				<Footer/>
+			</div>
+		)
+	}
+})
+
+var SearchView = React.createClass({
+
+	_handleSearch:function(evt){
+		evt.preventDefault()
+		console.log(evt.target.value)
+		var searchTerm = evt.target.value
+		console.log('searchTerm', searchTerm)
+		var spaceInWord = ' '
+		var re = new RegExp(spaceInWord, 'g')
+		var hashTerm = searchTerm.replace(re, '%20')
+		if (evt.keyCode === 13){			
+			location.hash='search/'+hashTerm
+		}
+	},
+
+	render: function(){
+
+		return (
+			<div id='render'>
+				<a href='#home'>HOME</a>
 				<form onSubmit={this._handleSearch} className='searchBox'>
 					<input data-qry='search' onKeyDown={this._handleSearch} type='search' placeholder='search food item' type='text'></input>
 					<button className={"btn btn-primary"}> search food item</button>
@@ -47,8 +88,6 @@ var AppView = React.createClass({
 		)
 	}
 })
-
-
 var SearchResultsView = React.createClass({
 
 
@@ -119,4 +158,4 @@ var SearchResultsItems =  React.createClass({
 })
 
 
-export{AppView}
+export{SplashView, SearchView}

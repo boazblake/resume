@@ -47,7 +47,7 @@ import Backbone from 'backbone'
 // console.log("_>>>>>", _)
 // console.log("Firebase>>>>>", Firebase)
 // console.log("backbone>>>>>", Backbone)
-import {AppView} from './views'
+import {SplashView, SearchView} from './views'
 // ///////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////
@@ -78,13 +78,15 @@ var NutrientColl = Backbone.Collection.extend({
 var IronEventsRouter = Backbone.Router.extend({
 	
 	routes:{
-		'*test':'handleTestPage'
+		'search/:qry':'handleSearchPage',
+		'*home':'handleSplashPage'
 	},
 
-	handleTestPage: function(){
+	handleSearchPage: function(){
 		var component = this
 		var hashRoute = location.hash
-		var qry = hashRoute.substring(1)
+		console.log('hashRoute', hashRoute)
+		var qry = hashRoute.substring(8)
 		console.log('qry', qry)
 		component.nc = new NutrientColl()
 		component.nc._setURL(qry)
@@ -96,8 +98,22 @@ var IronEventsRouter = Backbone.Router.extend({
 				// 'query':'tomato'
 			}
 		}).then( function(){
-			DOM.render(<AppView qryColl={component.nc}/>, document.querySelector('.container'))
+			DOM.render(<SearchView qryColl={component.nc}/>, document.querySelector('.container'))
 		})
+	},
+
+
+	handleSplashPage: function(){
+		var component = this
+		var hashRoute = location.hash
+		// var qry = hashRoute.substring(1)
+		// console.log('qry', qry)
+		// component.nc = new NutrientColl()
+		// component.nc._setURL(qry)
+		// console.log('component.nc', component.nc)
+		/
+			DOM.render(<SplashView qryColl={component.nc}/>, document.querySelector('.container'))
+		// })
 	},
 
 	initialize: function(){

@@ -141,7 +141,7 @@ var SearchResultsView = React.createClass({
 		var component = this
 		var item = component.props.item
 		return (
-			<div className='SearchResultsWrapper'>
+			<div className='SearchResultsWrapper' >
 			{this._generateJSXresults(component.props.qryColl)}
 			</div>
 		)

@@ -157,10 +157,16 @@ var SearchResultsItems =  React.createClass({
 	render:function(){
 		var item = this.props.item
 		if (item.get('fields').nf_ingredient_statement) {
-			var itemDesc = item.get('fields').nf_ingredient_statement
-			var itemDescMain = itemDesc.substring(140) + '...'
+			var itemIng = item.get('fields').nf_ingredient_statement
+			console.log('itemIng', itemIng)
+			var itemIngredMain = itemIng.substring(0, 140) + '...'
 		} 
-		
+
+		if (item.get('fields').item_description) {
+			var itemDesc = item.get('fields').item_description
+			console.log('itemDesc', itemDesc)
+			var itemDescMain = itemDesc.substring(0, 140) + '...'
+		} 
 		return (
 			<div key={this.props.key} className='cardWrapper' onClick={this._handleId.bind(this, item)}>
 				
@@ -177,8 +183,8 @@ var SearchResultsItems =  React.createClass({
 				</div>
 
 				<div className='brandDeets backOfCard'>
-					<p >item description: {item.get('fields').item_description}</p>
-					<p >ingredient statement: {itemDescMain}</p>
+					<p >ingredient description: {itemDescMain}</p>
+					<p >ingredient statement: {itemIngredMain}</p>
 				</div>
 
 			</div>

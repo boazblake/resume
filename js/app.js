@@ -41,79 +41,25 @@ import React, {Component} from 'react'
 import $ from 'jquery'
 import _ from 'underscore'
 import Backbone from 'backbone'
-// import Firebase from 'firebase'
-// import BackboneFire from 'bbfire'
-// console.log("$>>>>>", $)
-// console.log("_>>>>>", _)
-// console.log("Firebase>>>>>", Firebase)
-// console.log("backbone>>>>>", Backbone)
-import {SplashView, SearchView} from './views'
-// ///////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////
+import Firebase from 'firebase'
+import BackboneFire from 'bbfire'
+console.log("$>>>>>", $)
+console.log("_>>>>>", _)
+console.log("Firebase>>>>>", Firebase)
+console.log("backbone>>>>>", Backbone)
 
-// API URL
-
-// Field options
-// https://docs.google.com/spreadsheets/d/1jZSa039OfpQOiRzaS980nPKCvVe2TRKRPZk7ZbaH7kE/edit#gid=0
-
-var NutrientModel = Backbone.Model.extend({})
-
-var NutrientColl = Backbone.Collection.extend({
-	_setURL: function(qry){
-		this.url = `https://api.nutritionix.com/v1_1/search/${qry}?fields=item_name%2Cbrand_name%2Cnf_calories%2Cnf_total_carbohydrate%2Cnf_sugars%2Cnf_total_fat%2Cnf_calories_from_fat%2Cnf_water_grams%2citem_description%2Cnf_ingredient_statement%2Citem_id%2Cusda_fields`
-	},
-
-	appKey:'c530fdb9500741614cb04ec9dc9883d6',
-	appId:'98cd0ce4',
-
-	model:NutrientModel,
-	
-	parse:function(rawData){
-		console.log('rawData.hits: >>>>>>', rawData.hits)
-		return rawData.hits
-	}
-})
-
-var IronEventsRouter = Backbone.Router.extend({
+import {SplashView} from './views'
+// 
+var AppRouter = Backbone.Router.extend({
 	
 	routes:{
-		'search/:qry':'handleSearchPage',
 		'*home':'handleSplashPage'
-	},
-
-	handleSearchPage: function(){
-		var component = this
-		var hashRoute = location.hash
-		console.log('hashRoute', hashRoute)
-		var qry = hashRoute.substring(8)
-		console.log('qry', qry)
-		component.nc = new NutrientColl()
-		component.nc._setURL(qry)
-		console.log('component.nc', component.nc)
-		component.nc.fetch({
-			data:{
-				'appId':component.nc.appId,
-				'appKey':component.nc.appKey,
-				// 'query':'tomato'
-			}
-		}).then( function(){
-			DOM.render(<SearchView qryColl={component.nc}/>, document.querySelector('.container'))
-		})
 	},
 
 
 	handleSplashPage: function(){
-		var component = this
-		var hashRoute = location.hash
-		// var qry = hashRoute.substring(1)
-		// console.log('qry', qry)
-		// component.nc = new NutrientColl()
-		// component.nc._setURL(qry)
-		// console.log('component.nc', component.nc)
-		/
-			DOM.render(<SplashView qryColl={component.nc}/>, document.querySelector('.container'))
-		// })
+		var hworld = 'helloW orld'
+			DOM.render(<SplashView hworld={hworld}/>, document.querySelector('.container'))
 	},
 
 	initialize: function(){
@@ -122,4 +68,4 @@ var IronEventsRouter = Backbone.Router.extend({
 	}
 })
 
-var IER = new IronEventsRouter()
+var App = new AppRouter()

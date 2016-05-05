@@ -48,7 +48,7 @@ console.log("_>>>>>", _)
 console.log("Firebase>>>>>", Firebase)
 console.log("backbone>>>>>", Backbone)
 
-import {SplashView} from './views'
+import {Resume} from './views'
 // 
 var AppRouter = Backbone.Router.extend({
 	
@@ -60,7 +60,7 @@ var AppRouter = Backbone.Router.extend({
 
 	handleSplashPage: function(){
 		var hworld = 'helloW orld'
-			DOM.render(<SplashView hworld={hworld}/>, document.querySelector('.container'))
+			DOM.render(<Resume hworld={hworld}/>, document.querySelector('.container'))
 	},
 
 	initialize: function(){

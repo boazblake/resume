@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+.fa {
+    font-size: 2em;
+}
+
+.alignChildren {
+    font-size: 0;
+}
+
+.alignChildren > * {
+    display: inline-block;
+    font-size: medium;
+    vertical-align: top;
+}
+
+.content{
+    width: 80%;
+    margin: auto;
+}
+
+th {
+    color:rgb(41, 128, 185);
+}
+
+td {
+    color: rgb(52, 73, 94);
+}
+
+.hed {
+    text-align: center;
+}
+
+.hed h1{
+    color:rgb(41, 128, 185);
+}
+
+.hed table{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
+}
+.desc{
+    width: 80%;
+}
+
+.date {
+    width: 20%;
+}

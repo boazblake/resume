@@ -57,6 +57,7 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 
+
 	handleSplashPage: function(){
 		var hworld = 'helloW orld'
 			DOM.render(<SplashView hworld={hworld}/>, document.querySelector('.container'))

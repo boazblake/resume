@@ -1,1 +1,1 @@
-Boilerplate for Backbone, React and Firebase apps
+Resume

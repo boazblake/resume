@@ -33,20 +33,6 @@ td {
     color: rgb(52, 73, 94);
 }
 
-.hed {
-    text-align: center;
-}
-
-.hed h1{
-    color:rgb(41, 128, 185);
-}
-
-.hed table{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-
-}
 .desc{
     width: 80%;
 }
@@ -54,3 +40,38 @@ td {
 .date {
     width: 20%;
 }
+
+
+.hed {
+    display: block;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    float: right;
+    right:-50%;
+    transform: translateX(-75%);
+    text-align: center;
+    top:0; 
+    position: fixed;   
+    background: white;
+    z-index: 10;
+
+    h1{
+        color:rgb(41, 128, 185);
+    }
+
+    table{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+
+    }
+}
+
+.mainBody{
+    position: absolute;
+    top:250px;
+
+}
+
+

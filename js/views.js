@@ -14,29 +14,29 @@ var Header = React.createClass({
 					<table>
 						<tr className='faRow'>
 							<th>
-								<i className="fa fa-envelope-o"></i>
+								<i className='icons'className="fa fa-envelope-o"></i>
 							</th>
 							<th>
-								<i className="fa fa-mobile"></i>
+								<i className='icons'className="fa fa-mobile"></i>
 							</th>
 							<th>
-								<i className="fa fa-linkedin-square"></i>
+								<i className='icons'className="fa fa-linkedin-square"></i>
 							</th>
 							<th>
-								<i className="fa fa-code-fork"></i>
+								<i className='icons'className="fa fa-github-square"></i>
 							</th>
 						</tr>
-						<tr>
-								<th>email</th>
-								<th>mobile</th>
-								<th>linkedin</th>
-								<th>portfolio</th>
+						<tr className='faRow'>
+								<th className='titles' >email</th>
+								<th className='titles' >mobile</th>
+								<th className='titles' >linkedin</th>
+								<th className='titles' >portfolio</th>
 						</tr>
 						<tr>
-								<td>boazblake@gmail.com</td>
-								<td>347.420.3251</td>
-								<td>www.linkedin.com/in/boazblake</td>
-								<td>boazblake.github.io/portfolio</td>
+								<td className='deets' >boazblake@gmail.com</td>
+								<td className='deets' >347.420.3251</td>
+								<td className='deets' >www.linkedin.com/in/boazblake</td>
+								<td className='deets' >boazblake.github.io/portfolio</td>
 						</tr>
 					</table>
 			</div>
@@ -45,10 +45,12 @@ var Header = React.createClass({
 })
 
 var Footer = React.createClass({
-	render:function(){
-		return(
-			<div className='foot'>FOOTER</div>
-			)
+	render: function(){
+		return (
+			<div className='row footer'>
+
+			</div>
+		)
 	}
 })
 
@@ -62,29 +64,29 @@ var Edu = React.createClass({
 					</th>
 					<tbody>
 						<tr>
-						<td class='desc'><span>Front End Engineering</span>
+						<td className='desc'><span>Front End Engineering</span>
 	Intensive JavaScript programming course with a focus on SOLID principles and MVC frameworks ReactJS, BackboneJs
 	The Iron Yard - Houston</td>
-							<td class='date'>February 2016 - April 2016</td>
+							<td className='date'>February 2016 - April 2016</td>
 						</tr>
 						<tr>
-						<td class='desc'><span>PhD Human Space Exploration </span> environemntal stress on epigenetic inheritance and health
+						<td className='desc'><span>PhD Human Space Exploration </span> environemntal stress on epigenetic inheritance and health
 	University of Houston
 	NASA HRP Grant #NNX12AF04G</td>
-							<td class='date'>September 2011-May 2014 (on Haitus)</td>
+							<td className='date'>September 2011-May 2014 (on Haitus)</td>
 						</tr>
 						<tr>
-						<td class='desc'><span>Bachelor of Science in Sports Medicine</span>
+						<td className='desc'><span>Bachelor of Science in Sports Medicine</span>
 	Intensive program focused on Athletic injuries to both the  amateur and professional athlete
 	James Madison University, Harrisonburg, VA
 	cum laude</td>
-							<td class='date'>August 2007 - May 2010</td>
+							<td className='date'>August 2007 - May 2010</td>
 						</tr>
 						<tr>
-						<td class='desc'><span>International Criminal Justice</span>
+						<td className='desc'><span>International Criminal Justice</span>
 	John Jay College of Criminal Justice, New York, NY
 	GPA: 4.0.</td>
-							<td class='date'>January 2006 - August 2007</td>
+							<td className='date'>January 2006 - August 2007</td>
 						</tr>
 					</tbody>
 				</table>
@@ -125,45 +127,45 @@ var Work = React.createClass({
 					<th>Work Experience</th>
 					<tbody>
 						<tr>
-							<td  class='desc'
-	class='date'>Freelance Graphic Designer.
+							<td  className='desc'
+	className='date'>Freelance Graphic Designer.
 	Houston, Texas
 	Designed and implemented marketing strategies and campaigns for local businesses. Designed logos  and branding.</td>
-							<td  class='desc'
-	class='date'>April 2015 - Present</td>
+							<td  className='desc'
+	className='date'>April 2015 - Present</td>
 						</tr>
 						<tr>
-							<td class='desc'>Range Safety Officer. (switch with graphic designer)
+							<td className='desc'>Range Safety Officer. (switch with graphic designer)
 	Top Gun Range, Houston, Texas
 	Educate public and private sector market on all aspects of  gun ownership and usage. Focus on tactical application with integration of armed and unarmed situations.</td>
-							<td class='date'>April 2015 - Present</td>
+							<td className='date'>April 2015 - Present</td>
 						</tr>
 						<tr>
-							<td class='desc'>PhD Research Assistant
-	Taught Undergraduate science classes on Biomechanics, Statistics and health and fitness while studying the effects of spaceflight on the nervous system and the genetic effects of environmental stressors on immune function.</td>
-							<td class='date'>September 2011 - May 2014</td>
+							<td className='desc'>PhD Research Assistant
+	Taught Undergraduate science classNamees on Biomechanics, Statistics and health and fitness while studying the effects of spaceflight on the nervous system and the genetic effects of environmental stressors on immune function.</td>
+							<td className='date'>September 2011 - May 2014</td>
 						</tr>
 						<tr>
-							<td class='desc'>Graduate Athletic Trainer - Syracuse Football Team.
+							<td className='desc'>Graduate Athletic Trainer - Syracuse Football Team.
 	Syracuse University, Syracuse, NY
 	Evaluated, wrote and implemented football injury rehabilitation protocols.</td>
-							<td class='date'>June 2010 - August 2011</td>
+							<td className='date'>June 2010 - August 2011</td>
 						</tr>
 						<tr>
-							<td class='desc'>Athletic Training Student  - Athletic Training Education Program.
+							<td className='desc'>Athletic Training Student  - Athletic Training Education Program.
 	James Madison University, Harrisonburg, VA
 	Rotations with Men's Soccer, Men's Basketball, Football, Women's Track and Field and Cross Country, Women's Swimming and Diving, Men's and Women's Tennis.</td>
-							<td class='date'>September 2008 - May 2010</td>
+							<td className='date'>September 2008 - May 2010</td>
 						</tr>
 						<tr>
-							<td class='desc'>FDNY Instructor. Candidate Physical Ability Test (CPAT). 
+							<td className='desc'>FDNY Instructor. Candidate Physical Ability Test (CPAT). 
 	Coached candidates for FDNY.</td>
-							<td class='date'>June 2007 - July 2007</td>
+							<td className='date'>June 2007 - July 2007</td>
 						</tr>
 						<tr>
-							<td class='desc'>Anti-Terrorist Officer/Bodyguard.
+							<td className='desc'>Anti-Terrorist Officer/Bodyguard.
 	Provided close protection services for individuals and teams traveling throughout Israel.</td>
-							<td class='date'>October 2004 - December 2005</td>
+							<td className='date'>October 2004 - December 2005</td>
 						</tr>
 					</tbody>
 				</table>
@@ -180,24 +182,24 @@ var Military = React.createClass({
 					<th>Military Service</th>
 					<tbody>
 						<tr>
-							<td class='desc'>Israeli Defense Force, Airborne, Sergeant 1st class</td>
-							<td class='date'>November 2000 - May 2003</td>
+							<td className='desc'>Israeli Defense Force, Airborne, Sergeant 1st class</td>
+							<td className='date'>November 2000 - May 2003</td>
 						</tr>
 						<tr>
-							<td class='desc' >Israeli Army Specialist Training: Advanced Training</td>
-							<td class='date' >April 2001</td>
+							<td className='desc' >Israeli Army Specialist Training: Advanced Training</td>
+							<td className='date' >April 2001</td>
 						</tr>
 						<tr>
-							<td class='desc' >Israeli Army Specialist Training: Demolition</td>
-							<td class='date' >March 2002</td>
+							<td className='desc' >Israeli Army Specialist Training: Demolition</td>
+							<td className='date' >March 2002</td>
 						</tr>
 						<tr>
-							<td class='desc' >Israeli Army Specialist Training: Parachuting</td>
-							<td class='date' >January 2003</td>
+							<td className='desc' >Israeli Army Specialist Training: Parachuting</td>
+							<td className='date' >January 2003</td>
 						</tr>
 						<tr>
-							<td class='desc' >Reserve Duty - Nablus and Ramallah, Israel.</td>
-							<td class='date' >June 2005 - July 2005</td>
+							<td className='desc' >Reserve Duty - Nablus and Ramallah, Israel.</td>
+							<td className='date' >June 2005 - July 2005</td>
 						</tr>
 					</tbody>
 				</table>
@@ -214,16 +216,16 @@ var Education = React.createClass({
 					<th>Non-Traditional Education</th>
 					<tbody>
 						<tr>
-							<td class='desc' >Security Training: Global Security - Israel.</td>
-							<td class='date' >July 2005</td>
+							<td className='desc' >Security Training: Global Security - Israel.</td>
+							<td className='date' >July 2005</td>
 						</tr>
 						<tr>
-							<td class='desc' >Security Training: Israeli Airports Authority - Israel.</td>
-							<td class='date' >October 2004 - March 2005</td>
+							<td className='desc' >Security Training: Israeli Airports Authority - Israel.</td>
+							<td className='date' >October 2004 - March 2005</td>
 						</tr>
 						<tr>
-							<td class='desc' >Security Training: International College of Security - Israel. </td>
-							<td class='date' >October 2003</td>
+							<td className='desc' >Security Training: International College of Security - Israel. </td>
+							<td className='date' >October 2003</td>
 						</tr>
 					</tbody>
 				</table>

@@ -54,7 +54,7 @@ var Footer = React.createClass({
 	}
 })
 
-var Edu = React.createClass({
+var Education = React.createClass({
 	render:function(){
 		return(
 			<div className='edu'>
@@ -124,7 +124,7 @@ var Work = React.createClass({
 		return(
 			<div className='work'>
 				<table>
-					<th>Work Experience</th>
+					<th></th>
 					<tbody>
 						<tr>
 							<td  className='desc'><span>Freelance Graphic Designer</span>
@@ -175,30 +175,33 @@ var Work = React.createClass({
 
 var Military = React.createClass({
 	render:function(){
+		console.log('this.props.millitary', this.props.military)
+		var military = this.props.military
+
 		return(
 			<div className='military'>
 				<table>
-					<th>{this.props.military.title}</th>
-					<tbody>
-						<tr>
-							<td className='desc'>Israeli Defense Force, Airborne, Sergeant 1st class</td>
-							<td className='date'>November 2000 - May 2003</td>
+					<th>{military.title}</th>
+					<tbody body={military.body}>
+						<tr tr1={this.props.body.tr1}>
+							<td className='desc'>{td1.desc}</td>
+							<td className='date'>{td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Advanced Training</td>
-							<td className='date' >April 2001</td>
+						<tr tr2={military.body.tr2}>
+							<td className='desc' >{td1.desc}</td>
+							<td className='date' >{td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Demolition</td>
-							<td className='date' >March 2002</td>
+						<tr tr3={military.body.tr3}>
+							<td className='desc' >{td1.desc}</td>
+							<td className='date' >{td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Parachuting</td>
-							<td className='date' >January 2003</td>
+						<tr tr4={military.body.tr4}>
+							<td className='desc' >{td1.desc}</td>
+							<td className='date' >{td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Reserve Duty - Nablus and Ramallah, Israel.</td>
-							<td className='date' >June 2005 - July 2005</td>
+						<tr tr5={military.body.tr5}>
+							<td className='desc' >{td1.desc}</td>
+							<td className='date' >{td1.date}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -207,24 +210,26 @@ var Military = React.createClass({
 	}
 })
 
-var Education = React.createClass({
+var nonTrad_education = React.createClass({
 	render:function(){
+		var nonTrad_education = this.props.body.nonTrad_education
+
 		return(
-			<div className='education'>
+			<div className='nonTrad_education'>
 				<table>
-					<th>Non-Traditional Education</th>
-					<tbody>
-						<tr>
-							<td className='desc' >Security Training: Global Security - Israel.</td>
-							<td className='date' >July 2005</td>
+					<th>{nonTrad_education.title}</th>
+					<tbody body={nonTrad_education.body}>
+						<tr tr1={nonTrad_education.body.tr1}>
+							<td className='desc' >{tr1.td1.desc}</td>
+							<td className='date' >{tr1.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Security Training: Israeli Airports Authority - Israel.</td>
-							<td className='date' >October 2004 - March 2005</td>
+						<tr tr1={nonTrad_education.body.tr2}>
+							<td className='desc' >{tr2.td1.desc}</td>
+							<td className='date' >{tr2.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Security Training: International College of Security - Israel. </td>
-							<td className='date' >October 2003</td>
+						<tr tr1={nonTrad_education.body.tr3}>
+							<td className='desc' >{tr3.td1.desc} </td>
+							<td className='date' >{tr3.td1.date}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -233,23 +238,25 @@ var Education = React.createClass({
 			)
 	}
 })
-
 
 var Certs = React.createClass({
 	render:function(){
+
+		var certs = this.props.body.certs
+
 		return(
 			<div className='certs'>
 				<table>
-					<th>Certifications</th>
-					<tbody>
-						<tr>
-							<td>Certified Athletic Trainer #: 2000003407</td>
+					<th>{certs.title}</th>
+					<tbody body={certs.body}>
+						<tr tr1={certs.body.tr1}>
+							<td>{tr1.td1.desc}</td>
 						</tr>
-						<tr>
-							<td>American Red Cross CPR/AED for the Professional Rescuer</td>
+						<tr tr2={certs.body.tr2}>
+							<td>{tr2.td1.desc}</td>
 						</tr>
-						<tr>
-							<td>Krav Maga: Green belt under Grand Master Rohn Mizrachi (Current 2nd Highest holder Dan in Krav Maga)</td>
+						<tr tr3={certs.body.tr3}>
+							<td>{tr3.td1.desc}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -257,23 +264,26 @@ var Certs = React.createClass({
 			)
 	}
 })
+
+
+//MAINBODY STRUCTURE
 var MainBody = React.createClass({
 	render:function(){
+		console.log(this.props)
 		return(
 			<div className='mainBody'>
-				<Edu/>
-				<Skills/>
-				<Work/>
-				<Military military={this.props.military}/>
 				<Education/>
-				<Certs/>
+				<Skills/>
+				<Work />
+				<Military military={this.props.mainBody.military}/>
+				<nonTrad_education nonTrad_education={this.props.mainBody.nonTrad_education}/>
+				<Certs certs={this.props.mainBody.certs}/>
 			</div>
 		)
 	}
 })
 
-// VIEWS
-
+//RESUME STRUCTURE
 var Resume = React.createClass({
 
 
@@ -282,7 +292,7 @@ var Resume = React.createClass({
 		return (
 			<div id='render'>
 				<Header/>
-				<MainBody military={this.props.military}/>
+				<MainBody mainBody={this.props.ResumeData.mainBody} />
 				<Footer/>
 			</div>
 		)

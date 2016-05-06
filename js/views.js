@@ -183,25 +183,25 @@ var Military = React.createClass({
 				<table>
 					<th>{military.title}</th>
 					<tbody body={military.body}>
-						<tr tr1={this.props.body.tr1}>
-							<td className='desc'>{td1.desc}</td>
-							<td className='date'>{td1.date}</td>
+						<tr tr1={military.body.tr1}>
+							<td className='desc'>{military.body.tr1.td1.desc}</td>
+							<td className='date'>{military.body.tr1.td1.date}</td>
 						</tr>
-						<tr tr2={military.body.tr2}>
-							<td className='desc' >{td1.desc}</td>
-							<td className='date' >{td1.date}</td>
+						<tr tr2={this.props.tr2}>
+							<td className='desc' >{military.body.tr2.td1.desc}</td>
+							<td className='date' >{military.body.tr2.td1.date}</td>
 						</tr>
-						<tr tr3={military.body.tr3}>
-							<td className='desc' >{td1.desc}</td>
-							<td className='date' >{td1.date}</td>
+						<tr tr3={this.props.tr3}>
+							<td className='desc' >{military.body.tr3.td1.desc}</td>
+							<td className='date' >{military.body.tr3.td1.date}</td>
 						</tr>
-						<tr tr4={military.body.tr4}>
-							<td className='desc' >{td1.desc}</td>
-							<td className='date' >{td1.date}</td>
+						<tr tr4={this.props.tr4}>
+							<td className='desc' >{military.body.tr4.td1.desc}</td>
+							<td className='date' >{military.body.tr4.td1.date}</td>
 						</tr>
-						<tr tr5={military.body.tr5}>
-							<td className='desc' >{td1.desc}</td>
-							<td className='date' >{td1.date}</td>
+						<tr tr5={this.props.tr5}>
+							<td className='desc' >{military.body.tr5.td1.desc}</td>
+							<td className='date' >{military.body.tr5.td1.date}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -242,7 +242,7 @@ var nonTrad_education = React.createClass({
 var Certs = React.createClass({
 	render:function(){
 
-		var certs = this.props.body.certs
+		var certs = this.props.certs
 
 		return(
 			<div className='certs'>
@@ -250,13 +250,13 @@ var Certs = React.createClass({
 					<th>{certs.title}</th>
 					<tbody body={certs.body}>
 						<tr tr1={certs.body.tr1}>
-							<td>{tr1.td1.desc}</td>
+							<td>{certs.body.tr1.td1.desc}</td>
 						</tr>
 						<tr tr2={certs.body.tr2}>
-							<td>{tr2.td1.desc}</td>
+							<td>{certs.body.tr2.td1.desc}</td>
 						</tr>
 						<tr tr3={certs.body.tr3}>
-							<td>{tr3.td1.desc}</td>
+							<td>{certs.body.tr3.td1.desc}</td>
 						</tr>
 					</tbody>
 				</table>

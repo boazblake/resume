@@ -106,11 +106,11 @@ var Skills = React.createClass({
 							<th>Skills Currently Learning:</th>
 						</tr>
 						<tr>
-							<td>Coding: nodeJs, backboneJS, reactJs, jQuery, HTML, SCSS, Github,
-	Adobe: Photoshop, illustrator, InDesign After Effects, DreamWeaver.
-	Open Source: Sketch, iDraw, inkScape, Sketch, Gimp.
-	3D:123D Design, 123D Make, Live Interior 3D, Sketchup.</td>
-							<td>I have started to research both PHP and SQL and am open to suggestions.</td>
+						<td><span>Coding</span> nodeJs, backboneJS, reactJs, jQuery, HTML, SCSS, Github,
+						<span>Adobe </span> Photoshop, illustrator, InDesign After Effects, DreamWeaver.
+						<span>Open Source</span> Sketch, iDraw, inkScape, Sketch, Gimp.
+						<span>3D</span> 123D Design, 123D Make, Live Interior 3D, Sketchup.</td>
+							<td>I have started to research PHP postgreSQL, as well as Redux Flux and nodeJS</td>
 						</tr>
 					</tbody>
 				</table>
@@ -127,15 +127,14 @@ var Work = React.createClass({
 					<th>Work Experience</th>
 					<tbody>
 						<tr>
-							<td  className='desc'
-	className='date'>Freelance Graphic Designer.
+							<td  className='desc'><span>Freelance Graphic Designer</span>
 	Houston, Texas
 	Designed and implemented marketing strategies and campaigns for local businesses. Designed logos  and branding.</td>
-							<td  className='desc'
+							<td
 	className='date'>April 2015 - Present</td>
 						</tr>
 						<tr>
-							<td className='desc'>Range Safety Officer. (switch with graphic designer)
+							<td className='desc'>Range Safety Officer.
 	Top Gun Range, Houston, Texas
 	Educate public and private sector market on all aspects of  gun ownership and usage. Focus on tactical application with integration of armed and unarmed situations.</td>
 							<td className='date'>April 2015 - Present</td>

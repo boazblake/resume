@@ -59,9 +59,13 @@ var AppRouter = Backbone.Router.extend({
 
 
 	handleSplashPage: function(){
-		var hworld = 'helloW orld'
-			DOM.render(<Resume hworld={hworld}/>, document.querySelector('.container'))
-	},
+		var military = {
+			title:'Military Service'
+
+		}
+			DOM.render(<Resume military={military}/>, document.querySelector('.container'))
+		}
+	}
 
 	initialize: function(){
 		// console.log('app is routing!')

@@ -178,7 +178,7 @@ var Military = React.createClass({
 		return(
 			<div className='military'>
 				<table>
-					<th>Military Service</th>
+					<th>{this.props.military.title}</th>
 					<tbody>
 						<tr>
 							<td className='desc'>Israeli Defense Force, Airborne, Sergeant 1st class</td>
@@ -264,7 +264,7 @@ var MainBody = React.createClass({
 				<Edu/>
 				<Skills/>
 				<Work/>
-				<Military/>
+				<Military military={this.props.military}/>
 				<Education/>
 				<Certs/>
 			</div>
@@ -282,7 +282,7 @@ var Resume = React.createClass({
 		return (
 			<div id='render'>
 				<Header/>
-				<MainBody/>
+				<MainBody military={this.props.military}/>
 				<Footer/>
 			</div>
 		)

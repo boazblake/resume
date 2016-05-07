@@ -11,51 +11,22 @@ var Header = React.createClass({
 		return (
 			<div className='hed'>
 
-					 getInitialState: function () {
-				        return {hover: false};
-				    },
 
-				    mouseOver: function (evt) {
-				    	evt.preventDefault()
-				    	var classNameofIcon = evt.currentTarget.className
-				    	console.log('evt', evt.currentTarget.className)
-
-				        this.setState({hover: true});
-				    },
-
-				    mouseOut: function () {
-				        this.setState({hover: false});
-				    },
-
-					render:function(){	
-						if (this.state.hover){
-							var divstyle = {
-									backgroundColor:'rgba(41, 128, 185,1.0)',
-									color:'white',
-									transition:'0.7s all ease'
-							}	
-						} else {
-							var divstyle = {
-									backgroundColor:'white',
-									color:'rgba(41, 128, 185,1.0)',
-									transition:'0.7s all ease'
-						}
-					}
 
 					<h1>Boaz Blake</h1>
 					<table>
 						<tr className='faRow'>
 							<th>
-								<i className="fa fa-envelope-o one-quarter columns icons "></i>
+								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-envelope-o one-quarter columns icons "></i>
 							</th>
 							<th>
-								<i className="fa fa-mobile one-quarter columns icons "></i>
+								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-mobile one-quarter columns icons "></i>
 							</th>
 							<th>
-								<i className="fa fa-linkedin-square one-quarter columns icons "></i>
+								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-linkedin-square one-quarter columns icons "></i>
 							</th>
 							<th>
-								<i className="fa fa-github-square one-quarter columns icons "></i>
+								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-github-square one-quarter columns icons "></i>
 							</th>
 						</tr>
 						<tr className='faRow'>

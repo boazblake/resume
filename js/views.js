@@ -7,43 +7,113 @@ import Backbone from 'backbone'
 //MODULES
 
 var Header = React.createClass({
+	 
+	 getInitialState: function() {
+        return {hover: false}
+    },
+
+    mouseOver: function (evt) {
+    	evt.preventDefault()
+    	var fullName = evt.currentTarget.className.split(' ')
+    	var target = fullName.slice(5)
+    	console.log('target', target)
+
+
+        this.setState({
+        	hover: true
+        });
+    },
+
+    mouseOut: function () {
+        this.setState({
+        	hover: false
+        });
+    },
+
 	render:function(){
+		if (this.state.hover){
+			var iconStyle = {
+					backgroundColor:'rgba(41, 128, 185,1.0)',
+					color:'white',
+					transition:'0.7s all ease'
+			}
+			var titleStyle ={
+					transition:'0.7s all ease',
+					height:'100%',
+					opacity:'1'
+			}
+			var deetsStyle = {
+					transition:'0.7s all ease',
+					height:'100%',
+					opacity:'1'
+			}
+		} else {
+			var iconStyle = {
+					backgroundColor:'white',
+					color:'rgba(41, 128, 185,1.0)',
+					transition:'0.7s all ease'
+			}
+			var titleStyle ={
+					transition:'2s all ease',
+					height:'0',
+					opacity:'0'
+			}
+			var deetsStyle = {
+					transition:'2s all ease',
+					height:'0',
+					opacity:'0'
+			}
+		}
+
+
+
 		return (
 			<div className='hed'>
-
-
-
-					<h1>Boaz Blake</h1>
-					<table>
-						<tr className='faRow'>
-							<th>
-								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-envelope-o one-quarter columns icons "></i>
-							</th>
-							<th>
-								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-mobile one-quarter columns icons "></i>
-							</th>
-							<th>
-								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-linkedin-square one-quarter columns icons "></i>
-							</th>
-							<th>
-								<i style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-github-square one-quarter columns icons "></i>
-							</th>
-						</tr>
-						<tr className='faRow'>
-								<th className='one-quarter titles' >email</th>
-								<th className='one-quarter titles' >mobile</th>
-								<th className='one-quarter titles' >linkedin</th>
-								<th className='one-quarter titles' >portfolio</th>
-						</tr>
-						<tr>
-								<td className='one-quarter deets' >boazblake@gmail.com</td>
-								<td className='one-quarter deets' >347.420.3251</td>
-								<td className='one-quarter deets' >www.linkedin.com/in/boazblake</td>
-								<td className='one-quarter deets' >boazblake.github.io/portfolio</td>
-						</tr>
-					</table>
+				<h1>Boaz Blake</h1>
+				<table>
+					<tr className='faRow'>
+						<th>
+							<a target="_blank" href='mailto:boazblake@gmail.com?Subject=I saw your resume!'><i style={iconStyle}  onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-envelope-o one-quarter columns icons email"></i></a>
+						</th>
+						<th>
+							<a target="_blank" href='347.420.3251'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-mobile one-quarter columns icons phone"></i></a>
+						</th>
+						<th>
+							<a target="_blank" href='https://www.linkedin.com/in/boazblake'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-linkedin-square one-quarter columns icons linkedin"></i></a>
+						</th>
+						<th>
+							<a target="_blank" href='https://boazblake.github.io/portfolio'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-github-square one-quarter columns icons github"></i></a>
+						</th>
+					</tr>
+					<tr className='faRow'>
+							<th style={titleStyle} className='one-quarter titles email' >email</th>
+							<th style={titleStyle} className='one-quarter titles phone' >mobile</th>
+							<th style={titleStyle} className='one-quarter titles linkedin' >linkedin</th>
+							<th style={titleStyle} className='one-quarter titles github' >portfolio</th>
+					</tr>
+					<tr>
+							<td style={deetsStyle} className='one-quarter deets email' >boazblake@gmail.com</td>
+							<td style={deetsStyle} className='one-quarter deets phone' >347.420.3251</td>
+							<td style={deetsStyle} className='one-quarter deets linkedin' >www.linkedin.com/in/boazblake</td>
+							<td style={deetsStyle} className='one-quarter deets github' >boazblake.github.io/portfolio</td>
+					</tr>
+				</table>
 			</div>
 		)
+	}
+})
+
+var SubHeader = React.createClass({
+
+
+	render:function(){
+		var divStyle = {
+			height:`$('.Header').style`
+		}
+
+		return (
+			<div style={divStyle}></div>
+			)
 	}
 })
 
@@ -271,6 +341,7 @@ var Resume = React.createClass({
 		return (
 			<div id='render'>
 				<Header/>
+				<SubHeader/>
 				<MainBody mainBody={this.props.ResumeData.mainBody} />
 				<Footer/>
 			</div>

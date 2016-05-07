@@ -10,6 +10,38 @@ var Header = React.createClass({
 	render:function(){
 		return (
 			<div className='hed'>
+
+					 getInitialState: function () {
+				        return {hover: false};
+				    },
+
+				    mouseOver: function (evt) {
+				    	evt.preventDefault()
+				    	var classNameofIcon = evt.currentTarget.className
+				    	console.log('evt', evt.currentTarget.className)
+
+				        this.setState({hover: true});
+				    },
+
+				    mouseOut: function () {
+				        this.setState({hover: false});
+				    },
+
+					render:function(){	
+						if (this.state.hover){
+							var divstyle = {
+									backgroundColor:'rgba(41, 128, 185,1.0)',
+									color:'white',
+									transition:'0.7s all ease'
+							}	
+						} else {
+							var divstyle = {
+									backgroundColor:'white',
+									color:'rgba(41, 128, 185,1.0)',
+									transition:'0.7s all ease'
+						}
+					}
+
 					<h1>Boaz Blake</h1>
 					<table>
 						<tr className='faRow'>

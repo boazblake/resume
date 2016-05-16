@@ -91,7 +91,7 @@ var Header = React.createClass({
 							<th style={titleStyle} className='one-quarter titles linkedin' >linkedin</th>
 							<th style={titleStyle} className='one-quarter titles github' >portfolio</th>
 					</tr>
-					<tr>
+					<tr className='faRow'>
 							<td style={deetsStyle} className='one-quarter deets email' >boazblake@gmail.com</td>
 							<td style={deetsStyle} className='one-quarter deets phone' >347.420.3251</td>
 							<td style={deetsStyle} className='one-quarter deets linkedin' >www.linkedin.com/in/boazblake</td>
@@ -170,8 +170,9 @@ var Skills = React.createClass({
 							<th>{skills.title.t2}</th>
 						</tr>
 						<tr>
-						<td>{skills.body.td1}</td>
+							<td>{skills.body.td1}</td>
 							<td>{skills.body.td2}</td>
+							<td>{skills.body.td3}</td>
 						</tr>
 					</tbody>
 				</table>

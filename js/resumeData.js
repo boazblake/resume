@@ -32,12 +32,12 @@
 			},
 			skills:{
 				title:{
-					t1:'Skills Currently Mastering',
-					t2:'Skills Currently Mastering'
+					t1:'Skills Currently Mastering'
 				},
 				body:{
-					td1:'Coding: nodeJs, backboneJS, reactJs, jQuery, HTML, SCSS, Github. 	Adobe: Photoshop, illustrator, InDesign After Effects, DreamWeaver. 	Open Source: Sketch, iDraw, inkScape, Sketch, Gimp. 	3D: 123D Design, 123D Make, Live Interior 3D, Sketchup.',
-					td2:'I have started to research PHP postgreSQL, as well as Redux Flux and nodeJS'
+					td1:'CODING LANGUAGES: HTML, SCSS, Javascript.',
+					td2:'CODING FRAMEWORKS  + : Meteor, nodeJs, backboneJS, reactJs, jQuery, Vim.',
+					td3:'OTHER: Adobe: Photoshop, illustrator, InDesign After Effects, DreamWeaver. 	Open Source: Sketch, iDraw, inkScape, Sketch, Gimp. 	3D: 123D Design, 123D Make, Live Interior 3D, Sketchup.'
 				}
 			},
 			work:{
@@ -123,6 +123,7 @@
 					}
 				}
 			},
+
 			nonTrad_education:{
 				title:'Non-Traditional Education',
 				body:{
@@ -148,6 +149,7 @@
 					},
 				}
 			},
+
 			certs:{
 				title:'Certifications',
 				body:{

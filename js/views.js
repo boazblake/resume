@@ -30,11 +30,23 @@ var Header = React.createClass({
         });
     },
 
+    hover: function () {
+    	console.log('onHover is working')
+        this.setState({
+        	hover: true
+        });
+    },
+
+
 	render:function(){
 		if (this.state.hover){
-			var iconStyle = {
+			var rowStyle = {
 					backgroundColor:'rgba(41, 128, 185,1.0)',
+					transition:'0.7s all ease'
+			}
+			var iconStyle = {
 					color:'white',
+					backgroundColor:'rgba(41, 128, 185,1.0)',
 					transition:'0.7s all ease'
 			}
 			var titleStyle ={
@@ -48,6 +60,9 @@ var Header = React.createClass({
 					opacity:'1'
 			}
 		} else {
+			var rowStyle = {
+					transition:'0.7s all ease'
+			}
 			var iconStyle = {
 					backgroundColor:'white',
 					color:'rgba(41, 128, 185,1.0)',
@@ -68,34 +83,95 @@ var Header = React.createClass({
 
 
 		return (
-			<div className='hed'>
+			<div className='hed' >
 				<h1>Boaz Blake</h1>
 				<table>
-					<tr className='faRow'>
+					<tr className='faRow' style={rowStyle}>
 						<th>
-							<a target="_blank" href='mailto:boazblake@gmail.com?Subject=I saw your resume!'><i style={iconStyle}  onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-envelope-o one-quarter columns icons email"></i></a>
+							<a 	target="_blank"
+								href='mailto:boazblake@gmail.com?Subject=I saw your resume!'>
+								<i 	
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-envelope-o one-quarter columns icons email">
+								</i>
+							</a>
 						</th>
 						<th>
-							<a target="_blank" href='347.420.3251'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-mobile one-quarter columns icons phone"></i></a>
+							<a target="_blank" href='347.420.3251'>
+								<i 	
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-mobile one-quarter columns icons phone">
+								</i>
+							</a>
 						</th>
 						<th>
-							<a target="_blank" href='https://www.linkedin.com/in/boazblake'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-linkedin-square one-quarter columns icons linkedin"></i></a>
+							<a target="_blank" href='https://www.linkedin.com/in/boazblake'>
+								<i
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-linkedin-square one-quarter columns icons linkedin">
+								</i>
+							</a>
 						</th>
 						<th>
-							<a target="_blank" href='https://boazblake.github.io/portfolio'><i style={iconStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className="fa fa-github-square one-quarter columns icons github"></i></a>
+							<a 	target="_blank" href='https://boazblake.github.io/portfolio'>
+								<i	
+									style={iconStyle}	
+									onMouseOver={this.mouseOver}	
+										
+									className="fa fa-github-square one-quarter columns icons github">
+								</i>
+							</a>
 						</th>
 					</tr>
-					<tr className='faRow'>
-							<th style={titleStyle} className='one-quarter titles email' >email</th>
-							<th style={titleStyle} className='one-quarter titles phone' >mobile</th>
-							<th style={titleStyle} className='one-quarter titles linkedin' >linkedin</th>
-							<th style={titleStyle} className='one-quarter titles github' >portfolio</th>
+					<tr className='faRow' onMouseOut={this.mouseOut}>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles email' >email
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles phone' >mobile
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles linkedin' >linkedin
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles github' >portfolio
+							</th>
 					</tr>
-					<tr className='faRow'>
-							<td style={deetsStyle} className='one-quarter deets email' >boazblake@gmail.com</td>
-							<td style={deetsStyle} className='one-quarter deets phone' >347.420.3251</td>
-							<td style={deetsStyle} className='one-quarter deets linkedin' >www.linkedin.com/in/boazblake</td>
-							<td style={deetsStyle} className='one-quarter deets github' >boazblake.github.io/portfolio</td>
+					<tr className='faRow' onMouseOut={this.mouseOut}>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets email' >boazblake@gmail.com
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets phone' >347.420.3251
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets linkedin' >www.linkedin.com/in/boazblake
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets github' >boazblake.github.io/portfolio
+							</td>
 					</tr>
 				</table>
 			</div>

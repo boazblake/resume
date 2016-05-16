@@ -7,13 +7,20 @@ import Backbone from 'backbone'
 //MODULES
 
 var Header = React.createClass({
+<<<<<<< HEAD
 
 	 getInitialState: function () {
         return {hover: false};
+=======
+	 
+	 getInitialState: function() {
+        return {hover: false}
+>>>>>>> refrac
     },
 
     mouseOver: function (evt) {
     	evt.preventDefault()
+<<<<<<< HEAD
     	var classNameofIcon = evt.currentTarget.className
     	console.log('evt', evt.currentTarget.className)
 
@@ -71,11 +78,189 @@ var Header = React.createClass({
 								<td style={divstyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} className='deets github' >boazblake.github.io/portfolio</td>
 						</tr>
 					</table>
+=======
+    	var fullName = evt.currentTarget.className.split(' ')
+    	var target = fullName.slice(5)
+    	console.log('target', target)
+
+
+        this.setState({
+        	hover: true
+        });
+    },
+
+    mouseOut: function () {
+        this.setState({
+        	hover: false
+        });
+    },
+
+    hover: function () {
+    	console.log('onHover is working')
+        this.setState({
+        	hover: true
+        });
+    },
+
+
+	render:function(){
+		if (this.state.hover){
+			var rowStyle = {
+					backgroundColor:'rgba(41, 128, 185,1.0)',
+					transition:'0.7s all ease'
+			}
+			var iconStyle = {
+					color:'white',
+					backgroundColor:'rgba(41, 128, 185,1.0)',
+					transition:'0.7s all ease'
+			}
+			var titleStyle ={
+					transition:'0.7s all ease',
+					height:'100%',
+					opacity:'1'
+			}
+			var deetsStyle = {
+					transition:'0.7s all ease',
+					height:'100%',
+					opacity:'1'
+			}
+		} else {
+			var rowStyle = {
+					transition:'0.7s all ease'
+			}
+			var iconStyle = {
+					backgroundColor:'white',
+					color:'rgba(41, 128, 185,1.0)',
+					transition:'0.7s all ease'
+			}
+			var titleStyle ={
+					transition:'2s all ease',
+					height:'0',
+					opacity:'0'
+			}
+			var deetsStyle = {
+					transition:'2s all ease',
+					height:'0',
+					opacity:'0'
+			}
+		}
+
+
+
+		return (
+			<div className='hed' >
+				<h1>Boaz Blake</h1>
+				<table>
+					<tr className='faRow' style={rowStyle}>
+						<th>
+							<a 	target="_blank"
+								href='mailto:boazblake@gmail.com?Subject=I saw your resume!'>
+								<i 	
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-envelope-o one-quarter columns icons email">
+								</i>
+							</a>
+						</th>
+						<th>
+							<a target="_blank" href='347.420.3251'>
+								<i 	
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-mobile one-quarter columns icons phone">
+								</i>
+							</a>
+						</th>
+						<th>
+							<a target="_blank" href='https://www.linkedin.com/in/boazblake'>
+								<i
+									style={iconStyle}
+									onMouseOver={this.mouseOver}
+									
+									className="fa fa-linkedin-square one-quarter columns icons linkedin">
+								</i>
+							</a>
+						</th>
+						<th>
+							<a 	target="_blank" href='https://boazblake.github.io/portfolio'>
+								<i	
+									style={iconStyle}	
+									onMouseOver={this.mouseOver}	
+										
+									className="fa fa-github-square one-quarter columns icons github">
+								</i>
+							</a>
+						</th>
+					</tr>
+					<tr className='faRow' onMouseOut={this.mouseOut}>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles email' >email
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles phone' >mobile
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles linkedin' >linkedin
+							</th>
+							<th
+								style={titleStyle}
+								onHover={this.hover}
+								className='one-quarter titles github' >portfolio
+							</th>
+					</tr>
+					<tr className='faRow' onMouseOut={this.mouseOut}>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets email' >boazblake@gmail.com
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets phone' >347.420.3251
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets linkedin' >www.linkedin.com/in/boazblake
+							</td>
+							<td
+								style={deetsStyle}
+								onHover={this.hover}
+								className='one-quarter deets github' >boazblake.github.io/portfolio
+							</td>
+					</tr>
+				</table>
+>>>>>>> refrac
 			</div>
 		)
 	}
 })
 
+<<<<<<< HEAD
+=======
+var SubHeader = React.createClass({
+
+
+	render:function(){
+		var divStyle = {
+			height:`$('.Header').style`
+		}
+
+		return (
+			<div style={divStyle}></div>
+			)
+	}
+})
+>>>>>>> refrac
 
 var Footer = React.createClass({
 	render: function(){
@@ -105,16 +290,16 @@ var SubHeader = React.createClass({
 	}
 })
 
-var Edu = React.createClass({
+var Education = React.createClass({
 	render:function(){
+		var edu = this.props.edu
 		return(
 			<div className='edu'>
 				<table>
-					<th>
-						Traditional Education
-					</th>
+					<th>{edu.title}</th>
 					<tbody>
 						<tr>
+<<<<<<< HEAD
 						<td className='desc'><span>Front End Engineering </span>
 	Intensive JavaScript programming course with a focus on SOLID principles and MVC frameworks ReactJS, BackboneJs
 	The Iron Yard - Houston</td>
@@ -138,6 +323,22 @@ var Edu = React.createClass({
 	John Jay College of Criminal Justice, New York, NY
 	GPA: 4.0.</td>
 							<td className='date'>January 2006 - August 2007</td>
+=======
+							<td className='eight columns desc'>{edu.body.tr1.td1.desc}</td>
+							<td className='four columns date'>{edu.body.tr1.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{edu.body.tr2.td1.desc}</td>
+							<td className='four columns date'>{edu.body.tr2.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{edu.body.tr3.td1.desc}</td>
+							<td className='four columns date'>{edu.body.tr3.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{edu.body.tr4.td1.desc}</td>
+							<td className='four columns date'>{edu.body.tr4.td1.date}</td>
+>>>>>>> refrac
 						</tr>
 					</tbody>
 				</table>
@@ -148,20 +349,27 @@ var Edu = React.createClass({
 
 var Skills = React.createClass({
 	render:function(){
+		var skills = this.props.skills
 		return(
 			<div className='skills'>
 				<table>
 					<tbody>
 						<tr>
-							<th>Skills Currently Mastering</th>
-							<th>Skills Currently Learning:</th>
+							<th>{skills.title.t1}</th>
+							<th>{skills.title.t2}</th>
 						</tr>
 						<tr>
+<<<<<<< HEAD
 						<td><span>Coding </span> nodeJs, backboneJS, reactJs, jQuery, HTML, SCSS, Github,
 						<span>Adobe  </span> Photoshop, illustrator, InDesign After Effects, DreamWeaver.
 						<span>Open Source </span> Sketch, iDraw, inkScape, Sketch, Gimp.
 						<span>3D </span> 123D Design, 123D Make, Live Interior 3D, Sketchup.</td>
 							<td>I have started to research PHP postgreSQL, as well as Redux Flux and nodeJS</td>
+=======
+							<td>{skills.body.td1}</td>
+							<td>{skills.body.td2}</td>
+							<td>{skills.body.td3}</td>
+>>>>>>> refrac
 						</tr>
 					</tbody>
 				</table>
@@ -172,12 +380,14 @@ var Skills = React.createClass({
 
 var Work = React.createClass({
 	render:function(){
+		var work = this.props.work
 		return(
 			<div className='work'>
 				<table>
-					<th>Work Experience</th>
+					<th>{work.title}</th>
 					<tbody>
 						<tr>
+<<<<<<< HEAD
 							<td  className='desc'><span>Freelance Graphic Designer </span>
 	Houston, Texas
 	Designed and implemented marketing strategies and campaigns for local businesses. Designed logos  and branding.</td>
@@ -211,6 +421,34 @@ var Work = React.createClass({
 						<td className='desc'><span>Anti-Terrorist Officer/Bodyguard </span>
 	Provided close protection services for individuals and teams traveling throughout Israel.</td>
 							<td className='date'>October 2004 - December 2005</td>
+=======
+							<td className='eight columns desc'>{work.body.tr1.td1.desc}</td>
+							<td	className='four columns date'>{work.body.tr1.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{work.body.tr2.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr2.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{work.body.tr3.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr3.td1.date}</td>
+						</tr>
+						<tr>
+						<td className='eight columns desc'>{work.body.tr4.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr4.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{work.body.tr5.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr5.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{work.body.tr6.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr6.td1.date}</td>
+						</tr>
+						<tr>
+							<td className='eight columns desc'>{work.body.tr7.td1.desc}</td>
+							<td className='four columns date'>{work.body.tr7.td1.date}</td>
+>>>>>>> refrac
 						</tr>
 					</tbody>
 				</table>
@@ -221,30 +459,32 @@ var Work = React.createClass({
 
 var Military = React.createClass({
 	render:function(){
+		var military = this.props.military
+
 		return(
 			<div className='military'>
 				<table>
-					<th>Military Service</th>
-					<tbody>
-						<tr>
-							<td className='desc'>Israeli Defense Force, Airborne, Sergeant 1st class</td>
-							<td className='date'>November 2000 - May 2003</td>
+					<th>{military.title}</th>
+					<tbody body={military.body}>
+						<tr tr1={military.body.tr1}>
+							<td className='eight columns desc'>{military.body.tr1.td1.desc}</td>
+							<td className='four columns date'>{military.body.tr1.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Advanced Training</td>
-							<td className='date' >April 2001</td>
+						<tr tr2={this.props.tr2}>
+							<td className='eight columns desc' >{military.body.tr2.td1.desc}</td>
+							<td className='four columns date' >{military.body.tr2.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Demolition</td>
-							<td className='date' >March 2002</td>
+						<tr tr3={this.props.tr3}>
+							<td className='eight columns desc' >{military.body.tr3.td1.desc}</td>
+							<td className='four columns date' >{military.body.tr3.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Israeli Army Specialist Training: Parachuting</td>
-							<td className='date' >January 2003</td>
+						<tr tr4={this.props.tr4}>
+							<td className='eight columns desc' >{military.body.tr4.td1.desc}</td>
+							<td className='four columns date' >{military.body.tr4.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Reserve Duty - Nablus and Ramallah, Israel.</td>
-							<td className='date' >June 2005 - July 2005</td>
+						<tr tr5={this.props.tr5}>
+							<td className='eight columns  desc' >{military.body.tr5.td1.desc}</td>
+							<td className='four columns  date' >{military.body.tr5.td1.date}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -253,24 +493,26 @@ var Military = React.createClass({
 	}
 })
 
-var Education = React.createClass({
+var nonTrad_education = React.createClass({
 	render:function(){
+		var nonTrad_education = this.props.body.nonTrad_education
+
 		return(
-			<div className='education'>
+			<div className='nonTrad_education'>
 				<table>
-					<th>Non-Traditional Education</th>
-					<tbody>
-						<tr>
-							<td className='desc' >Security Training: Global Security - Israel.</td>
-							<td className='date' >July 2005</td>
+					<th>{nonTrad_education.title}</th>
+					<tbody body={nonTrad_education.body}>
+						<tr tr1={nonTrad_education.body.tr1}>
+							<td className='eight columns desc' >{nonTrad_education.body.tr1.td1.desc}</td>
+							<td className='four columns date' >{nonTrad_education.body.tr1.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Security Training: Israeli Airports Authority - Israel.</td>
-							<td className='date' >October 2004 - March 2005</td>
+						<tr tr1={nonTrad_education.body.tr2}>
+							<td className='eight columns desc' >{nonTrad_education.body.tr2.td1.desc}</td>
+							<td className='four columns date' >{nonTrad_education.body.tr2.td1.date}</td>
 						</tr>
-						<tr>
-							<td className='desc' >Security Training: International College of Security - Israel. </td>
-							<td className='date' >October 2003</td>
+						<tr tr1={nonTrad_education.body.tr3}>
+							<td className='eight columns desc' >{nonTrad_education.body.tr3.td1.desc} </td>
+							<td className='four columns date' >{nonTrad_education.body.tr3.td1.date}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -279,23 +521,25 @@ var Education = React.createClass({
 			)
 	}
 })
-
 
 var Certs = React.createClass({
 	render:function(){
+
+		var certs = this.props.certs
+
 		return(
 			<div className='certs'>
 				<table>
-					<th>Certifications</th>
-					<tbody>
-						<tr>
-							<td>Certified Athletic Trainer #: 2000003407</td>
+					<th>{certs.title}</th>
+					<tbody body={certs.body}>
+						<tr tr1={certs.body.tr1}>
+							<td>{certs.body.tr1.td1.desc}</td>
 						</tr>
-						<tr>
-							<td>American Red Cross CPR/AED for the Professional Rescuer</td>
+						<tr tr2={certs.body.tr2}>
+							<td>{certs.body.tr2.td1.desc}</td>
 						</tr>
-						<tr>
-							<td>Krav Maga: Green belt under Grand Master Rohn Mizrachi (Current 2nd Highest holder Dan in Krav Maga)</td>
+						<tr tr3={certs.body.tr3}>
+							<td>{certs.body.tr3.td1.desc}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -303,23 +547,26 @@ var Certs = React.createClass({
 			)
 	}
 })
+
+
+//MAINBODY STRUCTURE
 var MainBody = React.createClass({
 	render:function(){
+		console.log(this.props)
 		return(
 			<div className='mainBody'>
-				<Edu/>
-				<Skills/>
-				<Work/>
-				<Military/>
-				<Education/>
-				<Certs/>
+				<Education edu={this.props.mainBody.education}/>
+				<Skills skills={this.props.mainBody.skills}/>
+				<Work work={this.props.mainBody.work}/>
+				<Military military={this.props.mainBody.military}/>
+				<nonTrad_education nonTrad_education={this.props.mainBody.nonTrad_education}/>
+				<Certs certs={this.props.mainBody.certs}/>
 			</div>
 		)
 	}
 })
 
-// VIEWS
-
+//RESUME STRUCTURE
 var Resume = React.createClass({
 
 
@@ -329,7 +576,11 @@ var Resume = React.createClass({
 			<div id='render'>
 				<Header/>
 				<SubHeader/>
+<<<<<<< HEAD
 				<MainBody/>
+=======
+				<MainBody mainBody={this.props.ResumeData.mainBody} />
+>>>>>>> refrac
 				<Footer/>
 			</div>
 		)

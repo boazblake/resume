@@ -29,9 +29,8 @@ th {
     color:rgb(41, 128, 185);
 }
 
-table* {
+td {
     color: rgb(52, 73, 94);
-    border: none;
 }
 
 // .desc{
@@ -69,24 +68,10 @@ table* {
         width: 80%;
         margin: auto;
         text-align: center;
-<<<<<<< HEAD
-
-    .hoverOn{
-        background-color:rgba(41, 128, 185,1.0);
-        color:white;
-    }
-
-    .hoverOff{
-        background-color:white;
-        color:rgba(41, 128, 185,1.0);
-    }
-
-=======
         
     }
     .farow {
     display: block;
->>>>>>> refrac
     }
 }
 
@@ -97,15 +82,9 @@ table* {
 
     .edu span,
     .skills span,
-<<<<<<< HEAD
-    .work span,
-    {
-=======
     .work span{
->>>>>>> refrac
         font-weight:bolder;
     }
 }
-
 
 

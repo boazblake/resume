@@ -129,7 +129,7 @@ var Header = React.createClass({
 							</a>
 						</th>
 					</tr>
-					<tr className='faRow' onMouseOut={this.mouseOut}>
+					<tr className='faRow'>
 							<th
 								style={titleStyle}
 								onHover={this.hover}

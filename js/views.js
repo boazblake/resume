@@ -93,17 +93,15 @@ var Header = React.createClass({
 								<i 	
 									style={iconStyle}
 									onMouseOver={this.mouseOver}
-									
 									className="fa fa-envelope-o one-quarter columns icons email">
 								</i>
 							</a>
 						</th>
 						<th>
-							<a target="_blank" href='347.420.3251'>
+							<a target="_blank" href='tel:347.420.3251'>
 								<i 	
 									style={iconStyle}
 									onMouseOver={this.mouseOver}
-									
 									className="fa fa-mobile one-quarter columns icons phone">
 								</i>
 							</a>
@@ -113,7 +111,6 @@ var Header = React.createClass({
 								<i
 									style={iconStyle}
 									onMouseOver={this.mouseOver}
-									
 									className="fa fa-linkedin-square one-quarter columns icons linkedin">
 								</i>
 							</a>
@@ -123,7 +120,6 @@ var Header = React.createClass({
 								<i	
 									style={iconStyle}	
 									onMouseOver={this.mouseOver}	
-										
 									className="fa fa-github-square one-quarter columns icons github">
 								</i>
 							</a>

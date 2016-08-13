@@ -80,10 +80,11 @@ var Header = React.createClass({
 			}
 		}
 
-
 		return (
 			<div className='hed' >
-				<button>PDF VERSION</button>
+				<a href="https://github.com/boazblake/resume/blob/master/Boaz_Blake_Resume.pdf" target="_blank">
+					<input type="button" className="button" value="PDF VERSION" />
+				</a>
 				<h1>Boaz Blake</h1>
 				<table>
 					<tr className='faRow' style={rowStyle}>

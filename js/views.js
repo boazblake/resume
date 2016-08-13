@@ -81,9 +81,9 @@ var Header = React.createClass({
 		}
 
 
-
 		return (
 			<div className='hed' >
+				<button>PDF VERSION</button>
 				<h1>Boaz Blake</h1>
 				<table>
 					<tr className='faRow' style={rowStyle}>
@@ -406,7 +406,7 @@ var MainBody = React.createClass({
 })
 
 //RESUME STRUCTURE
-var Resume = React.createClass({
+export var ResumeTemplate = React.createClass({
 
 
 	render: function(){
@@ -421,5 +421,3 @@ var Resume = React.createClass({
 		)
 	}
 })
-
-export{Resume}

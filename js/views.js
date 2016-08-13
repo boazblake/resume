@@ -82,8 +82,8 @@ var Header = React.createClass({
 
 		return (
 			<div className='hed' >
-				<a href="https://github.com/boazblake/resume/blob/master/Boaz_Blake_Resume.pdf" target="_blank">
-					<input type="button" className="button" value="PDF VERSION" />
+				<a style={ {position:"absoulte", float:"left"} } href="https://github.com/boazblake/resume/blob/master/Boaz_Blake_Resume.pdf" target="_blank">
+					<input type="button" className="button" value="VIEW PDF VERSION" />
 				</a>
 				<h1>Boaz Blake</h1>
 				<table>

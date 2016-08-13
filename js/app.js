@@ -48,7 +48,7 @@ console.log("_>>>>>", _)
 console.log("Firebase>>>>>", Firebase)
 console.log("backbone>>>>>", Backbone)
 
-import {Resume} from './views'
+import {ResumeTemplate} from './views'
 import {ResumeData} from './ResumeData'
 
 // 
@@ -66,7 +66,7 @@ var AppRouter = Backbone.Router.extend({
 	handleSplashPage: function(){
 		
 
-			DOM.render(<Resume ResumeData={ResumeData}/>, document.querySelector('.container'))
+			DOM.render(<ResumeTemplate ResumeData={ResumeData}/>, document.querySelector('.container'))
 	},
 
 	initialize: function(){

@@ -123,7 +123,6 @@
 					}
 				}
 			},
-
 			nonTrad_education:{
 				title:'Non-Traditional Education',
 				body:{
@@ -149,7 +148,6 @@
 					},
 				}
 			},
-
 			certs:{
 				title:'Certifications',
 				body:{
